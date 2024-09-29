@@ -1,0 +1,121 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --highlight-color: #0088cc; /* Telegram blue */
+    --secondary-bg: #1e1e1e;
+    --border-color: #2c2c2c;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.tab-navigation {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--secondary-bg);
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.tab-navigation button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tab-navigation button.active {
+    color: var(--highlight-color);
+}
+
+.tab-content {
+    display: none;
+    margin-bottom: 60px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 12px; /* Curved corners */
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    font-family: 'Courier New', monospace; /* Monospace font */
+}
+
+button {
+    background-color: var(--highlight-color);
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    border-radius: 12px; /* Curved corners */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.transaction-list {
+   list-style-type: none; 
+   padding: 0; 
+}
+
+.transaction-item {
+   background-color: var(--secondary-bg); 
+   margin: 10px 0; 
+   padding: 15px; 
+   border-radius: 12px; /* Curved corners */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+body.light-mode {
+   --bg-color: #f0f0f0; 
+   --text-color: #000000; 
+   --secondary-bg: #ffffff; 
+   --border-color: #cccccc; 
+}
+
+#balance-widget {
+   background-color: var(--highlight-color); 
+   color: var(--text-color); 
+   padding: 15px; 
+   border-radius: 12px; /* Curved corners */
+   text-align: center; 
+   font-size: 24px; 
+   margin-bottom: 20px; 
+}
