@@ -173,7 +173,9 @@ function downloadReceipt(index) {
 
    // Add footer
    ctx.textAlign = 'center';
-   ctx.fillText('Thank you for using PAYZ!', canvas.width / 2, canvas.height - 30);
+   ctx.fillText('Thank you for using PAYZ!', canvas.width / 2, canvas.height - 60);
+   ctx.fillText('Join us now!', canvas.width / 2, canvas.height - 30);
+   ctx.fillText('https://tenoco.github.io/PAYZ/', canvas.width / 2, canvas.height - 10);
 
    // Convert canvas to image and download
    canvas.toBlob(function(blob) {

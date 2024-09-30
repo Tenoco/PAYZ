@@ -86,7 +86,7 @@ button:hover {
     color: var(--text-color);
     border-radius: 10px; /* Slightly smaller corners */
     border: none;
-    padding: 5px 8px; /* Reduced padding */
+    padding: 1px 8px; /* Reduced padding */
 }
 
 .transaction-list {
