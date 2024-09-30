@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', monospace; /* Ensure monospace font */
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
@@ -18,9 +18,9 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 600px; /* Keep this to maintain layout */
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px; /* Reduced padding */
     flex-grow: 1;
 }
 
@@ -32,7 +32,7 @@ h1, h2 {
     display: flex;
     justify-content: space-around;
     background-color: var(--secondary-bg);
-    padding: 10px 0;
+    padding: 5px 0; /* Reduced padding */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -42,7 +42,7 @@ h1, h2 {
     background: none;
     border: none;
     color: var(--text-color);
-    font-size: 16px;
+    font-size: 14px; /* Reduced font size */
     cursor: pointer;
 }
 
@@ -52,7 +52,7 @@ h1, h2 {
 
 .tab-content {
     display: none;
-    margin-bottom: 60px;
+    margin-bottom: 50px; /* Reduced margin */
 }
 
 .tab-content.active {
@@ -61,13 +61,13 @@ h1, h2 {
 
 input, select, button {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 12px; /* Curved corners */
+    padding: 8px; /* Reduced padding */
+    margin: 8px 0; /* Reduced margin */
+    border-radius: 10px; /* Slightly smaller corners */
     border: 1px solid var(--border-color);
     background-color: var(--secondary-bg);
     color: var(--text-color);
-    font-family: 'Courier New', monospace; /* Monospace font */
+    font-family: 'Courier New', monospace; /* Ensure monospace font */
 }
 
 button {
@@ -80,14 +80,13 @@ button:hover {
 
 #mode-toggle {
     position: absolute;
-    top: 10px;
+    top: 60px; /* Increased top position to create space */
     right: 10px;
     background-color: var(--highlight-color);
     color: var(--text-color);
-    border-radius: 12px; /* Curved corners */
+    border-radius: 10px; /* Slightly smaller corners */
     border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    padding: 5px 8px; /* Reduced padding */
 }
 
 .transaction-list {
@@ -97,10 +96,11 @@ button:hover {
 
 .transaction-item {
    background-color: var(--secondary-bg); 
-   margin: 10px 0; 
-   padding: 15px; 
-   border-radius: 12px; /* Curved corners */
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+   margin: 8px 0; /* Reduced margin */
+   padding: 10px; /* Reduced padding */
+   border-radius: 10px; /* Slightly smaller corners */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow for depth */
+   font-family: 'Courier New', monospace; /* Ensure monospace font */
 }
 
 body.light-mode {
@@ -113,9 +113,10 @@ body.light-mode {
 #balance-widget {
    background-color: var(--highlight-color); 
    color: var(--text-color); 
-   padding: 15px; 
-   border-radius: 12px; /* Curved corners */
+   padding: 10px; /* Reduced padding */
+   border-radius: 10px; /* Slightly smaller corners */
    text-align: center; 
-   font-size: 24px; 
-   margin-bottom: 20px; 
+   font-size: 20px; /* Reduced font size */
+   margin-bottom: 15px; /* Reduced margin */
+   font-family: 'Courier New', monospace; /* Ensure monospace font */
 }

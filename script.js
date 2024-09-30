@@ -106,7 +106,7 @@ function downloadReceipt(index) {
     const transaction = accountData.transactions[index];
     const canvas = document.createElement('canvas');
     canvas.width = 400;
-    canvas.height = 650; // Increased height to accommodate new information
+    canvas.height = 600;
     const ctx = canvas.getContext('2d');
 
     // Set background color
@@ -139,57 +139,53 @@ function downloadReceipt(index) {
         y += lineHeight;
     }
 
-    drawLine('Transaction Receipt');
-    drawLine('------------------------');
-    drawLine(`Type: ${transaction.type.toUpperCase()}`);
-    drawLine(`Amount: ${transaction.amount} ${accountData.currency}`);
-    drawLine(`Date: ${new Date(transaction.date).toLocaleString()}`);
-    drawLine(`${transaction.type === 'transfer' ? 'Recipient' : 'Sender'}:`);
-    drawLine(`  ${transaction.type === 'transfer' ? transaction.recipient : transaction.sender}`);
-    drawLine(`Sender: ${accountData.name}`); // Add account name
-    drawLine('Description:');
+   drawLine('Transaction Receipt');
+   drawLine('------------------------');
+   drawLine(`Type: ${transaction.type.toUpperCase()}`);
+   drawLine(`Amount: ${transaction.amount} ${accountData.currency}`);
+   drawLine(`Date: ${new Date(transaction.date).toLocaleString()}`);
+   drawLine(`${transaction.type === 'transfer' ? 'Recipient' : 'Sender'}:`);
+   drawLine(`  ${transaction.type === 'transfer' ? transaction.recipient : transaction.sender}`);
+   drawLine('Description:');
 
-    // Wrap description text
-    const words = transaction.description.split(' ');
-    let line = '';
-    for (let word of words) {
-        const testLine = line + word + ' ';
-        const metrics = ctx.measureText(testLine);
-        if (metrics.width > canvas.width - 60 && line !== '') {
-            drawLine(`  ${line}`);
-            line = word + ' ';
-        } else {
-            line = testLine;
-        }
-    }
-    drawLine(`  ${line}`);
+   // Wrap description text
+   const words = transaction.description.split(' ');
+   let line = '';
+   for (let word of words) {
+       const testLine = line + word + ' ';
+       const metrics = ctx.measureText(testLine);
+       if (metrics.width > canvas.width - 60 && line !== '') {
+           drawLine(`  ${line}`);
+           line = word + ' ';
+       } else {
+           line = testLine;
+       }
+   }
+   drawLine(`  ${line}`);
 
-    // Add a decorative element
-    ctx.strokeStyle = '#0070ba';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(30, y + 20);
-    ctx.lineTo(canvas.width - 30, y + 20);
-    ctx.stroke();
+   // Add a decorative element
+   ctx.strokeStyle = '#0070ba';
+   ctx.lineWidth = 2;
+   ctx.beginPath();
+   ctx.moveTo(30, y + 20);
+   ctx.lineTo(canvas.width - 30, y + 20);
+   ctx.stroke();
 
-    // Add footer
-    ctx.textAlign = 'center';
-    ctx.fillText('Thank you for using PAYZ!', canvas.width / 2, canvas.height - 60);
-    ctx.fillText('Join us on Telegram:', canvas.width / 2, canvas.height - 30);
-    ctx.fillStyle = '#0070ba';
-    ctx.fillText('https://t.me/pjpayz_bot', canvas.width / 2, canvas.height - 10);
+   // Add footer
+   ctx.textAlign = 'center';
+   ctx.fillText('Thank you for using PAYZ!', canvas.width / 2, canvas.height - 30);
 
-    // Convert canvas to image and download
-    canvas.toBlob(function(blob) {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `PAYZ_receipt_${transaction.date}.png`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    });
+   // Convert canvas to image and download
+   canvas.toBlob(function(blob) {
+       const url = URL.createObjectURL(blob);
+       const a = document.createElement('a');
+       a.href = url;
+       a.download = `PAYZ_receipt_${transaction.date}.png`;
+       document.body.appendChild(a);
+       a.click();
+       document.body.removeChild(a);
+       URL.revokeObjectURL(url);
+   });
 }
 
 function saveToCookie() {
@@ -269,12 +265,9 @@ function loadThemeFromCookie() {
 }
 
 function updateBalanceWidget() {
-    balanceWidget.innerHTML = `
-        <p>Account: ${accountData.name}</p>
-        <p>Balance: ${accountData.balance.toFixed(2)} ${accountData.currency}</p>
-    `;
+     balanceWidget.textContent =
+         `Balance: ${accountData.balance.toFixed(2)} ${accountData.currency}`;
 }
-
 
 function exportData() {
      const dataStr =
