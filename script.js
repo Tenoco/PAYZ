@@ -146,6 +146,7 @@ function downloadReceipt(index) {
    drawLine(`Date: ${new Date(transaction.date).toLocaleString()}`);
    drawLine(`${transaction.type === 'transfer' ? 'Recipient' : 'Sender'}:`);
    drawLine(`  ${transaction.type === 'transfer' ? transaction.recipient : transaction.sender}`);
+   drawLine(`Account Holder: ${accountData.name}`);    
    drawLine('Description:');
 
    // Wrap description text
