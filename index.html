@@ -8,53 +8,84 @@
     <meta name="description" content="PAYZ is your go-to platform for managing accounts, transfers, and transaction history seamlessly.">
     <meta name="keywords" content="finance, account management, transfers, transaction history">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <button id="mode-toggle">Toggle Light/Dark Mode</button>
+    <button id="mode-toggle"><i class="fas fa-adjust"></i></button>
     <div class="container">
-        <h1>PAYZ</h1>
-        <div id="balance-widget"></div>
+        <h1><i class="fas fa-wallet"></i> PAYZ</h1>
+        <div id="balance-widget"><i class="fas fa-money-bill-wave"></i></div>
         <div id="account" class="tab-content active">
-            <h2>Account</h2>
-            <input type="text" id="accountName" placeholder="Account Name">
-            <input type="number" id="balance" placeholder="Balance">
-            <select id="currency">
-                <option value="USD">USD</option>
-                <option value="NGN">NGN</option>
-            </select>
-            <button id="saveAccount">Save Account Details</button>
+            <h2><i class="fas fa-user-circle"></i> Account</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="accountName" placeholder="Account Name">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-coins"></i>
+                <input type="number" id="balance" placeholder="Balance">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-globe"></i>
+                <select id="currency">
+                    <option value="USD">USD</option>
+                    <option value="NGN">NGN</option>
+                </select>
+            </div>
+            <button id="saveAccount"><i class="fas fa-save"></i> Save Account Details</button>
         </div>
         <div id="transfer" class="tab-content">
-            <h2>Transfer</h2>
-            <input type="text" id="recipientName" placeholder="Recipient Name (Optional)">
-            <input type="number" id="transferAmount" placeholder="Amount to Transfer">
-            <input type="text" id="transferDescription" placeholder="Description (Optional)">
-            <button id="sendTransfer">Send Transfer</button>
+            <h2><i class="fas fa-exchange-alt"></i> Transfer</h2>
+            <div class="input-group">
+                <i class="fas fa-user-friends"></i>
+                <input type="text" id="recipientName" placeholder="Recipient Name (Optional)">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-money-bill-transfer"></i>
+                <input type="number" id="transferAmount" placeholder="Amount to Transfer">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-comment-alt"></i>
+                <input type="text" id="transferDescription" placeholder="Description (Optional)">
+            </div>
+            <button id="sendTransfer"><i class="fas fa-paper-plane"></i> Send Transfer</button>
         </div>
         <div id="receive" class="tab-content">
-            <h2>Receive</h2>
-            <input type="text" id="senderName" placeholder="Sender Name (Optional)">
-            <input type="number" id="receiveAmount" placeholder="Amount Received">
-            <input type="text" id="receiveDescription" placeholder="Description (Optional)">
-            <button id="recordReceive">Record Received Funds</button>
+            <h2><i class="fas fa-hand-holding-usd"></i> Receive</h2>
+            <div class="input-group">
+                <i class="fas fa-user-friends"></i>
+                <input type="text" id="senderName" placeholder="Sender Name (Optional)">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-money-bill-wave"></i>
+                <input type="number" id="receiveAmount" placeholder="Amount Received">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-comment-alt"></i>
+                <input type="text" id="receiveDescription" placeholder="Description (Optional)">
+            </div>
+            <button id="recordReceive"><i class="fas fa-check-circle"></i> Record Received Funds</button>
         </div>
         <div id="history" class="tab-content">
-            <h2>Transaction History</h2>
+            <h2><i class="fas fa-history"></i> Transaction History</h2>
             <ul id="transactionList" class="transaction-list"></ul>
         </div>
         <div id="export-import" class="tab-content">
-            <h2>Export/Import Data</h2>
-            <button id="exportData">Export Data</button>
-            <input type="file" id="importFile" accept=".json">
-            <button id="importData">Import Data</button>
+            <h2><i class="fas fa-file-export"></i> Export/Import Data</h2>
+            <button id="exportData"><i class="fas fa-download"></i> Export Data</button>
+            <div class="input-group">
+                <i class="fas fa-file-upload"></i>
+                <input type="file" id="importFile" accept=".json">
+            </div>
+            <button id="importData"><i class="fas fa-upload"></i> Import Data</button>
         </div>
     </div>
     <nav class="tab-navigation">
-        <button data-tab="account" class="active">Account</button>
-        <button data-tab="transfer">Transfer</button>
-        <button data-tab="receive">Receive</button>
-        <button data-tab="history">History</button>
-        <button data-tab="export-import">Export/Import</button>
+        <button data-tab="account" class="active"><i class="fas fa-user-circle"></i></button>
+        <button data-tab="transfer"><i class="fas fa-exchange-alt"></i></button>
+        <button data-tab="receive"><i class="fas fa-hand-holding-usd"></i></button>
+        <button data-tab="history"><i class="fas fa-history"></i></button>
+        <button data-tab="export-import"><i class="fas fa-file-export"></i></button>
     </nav>
 
     <script src="script.js"></script>

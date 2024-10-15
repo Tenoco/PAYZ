@@ -314,7 +314,42 @@ function loadThemeFromCookie() {
 }
 
 function updateBalanceWidget() {
-    balanceWidget.textContent = `Balance: ${accountData.balance.toFixed(2)} ${accountData.currency}`;
+    const formattedBalance = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: accountData.currency
+    }).format(accountData.balance);
+
+    balanceWidget.innerHTML = `
+        <style>
+            #balance-widget {
+                background: linear-gradient(135deg, #0088cc, #005580);
+                color: #ffffff;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                font-family: 'Courier New', monospace;
+            }
+            .balance-label {
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+            .balance-amount {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .balance-currency {
+                font-size: 16px;
+                opacity: 0.8;
+            }
+        </style>
+        <div class="balance-label">Current Balance</div>
+        <div class="balance-amount">${formattedBalance}</div>
+        <div class="balance-currency">${accountData.currency}</div>
+    `;
 }
 
 function exportData() {
